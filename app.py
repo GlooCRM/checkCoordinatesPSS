@@ -4,9 +4,9 @@ import json
 
 app = Flask(__name__)
 
-@app.route('/check_coordinates', methods=['POST'])
+@app.route('/check_coordinates', methods=['GET'])
 def check_coordinates():
-    if request.method == 'POST':
+    if request.method == 'GET':
         try:
             # Get the GeoJSON and coordinates from the request
             data = request.json
