@@ -16,7 +16,7 @@ def check_coordinates():
         try:
             #coordinates = request.json['coordinates']
             coordinates = [-123.1109401,49.02]
-            point = Point(coordinates)
+            point = Point(coordinates) 
             is_inside = polygon.contains(point)
             return jsonify({"inside_polygon": is_inside})
         except Exception as e:
