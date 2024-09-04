@@ -4,15 +4,14 @@ import json
 
 app = Flask(__name__)
 
-@app.route('/check_coordinates', methods=['GET'])
+@app.route('/check_coordinates', methods=['POST'])
 def check_coordinates():
-    if request.method == 'GET':
+    if request.method == 'POST':
         try:
             # Get the GeoJSON and coordinates from the request
             data = request.json
             geojson = data.get('geojson')
             coordinates = data.get('coordinates')
-
             # Validate input
             if not geojson or not coordinates:
                 return jsonify({"error": "Missing geojson or coordinates"}), 400
